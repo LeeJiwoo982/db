@@ -74,12 +74,108 @@ SELECT
 FROM 
   customers
 WHERE 
-  City = "Prague";
+  City = 'Prague';
+
+SELECT LastName, FirstName, Company, Country 
+FROM customers 
+WHERE 
+  Company IS NULL 
+  AND Country = 'USA';
+
+SELECT LastName, FirstName, Company, Country 
+FROM customers 
+WHERE 
+  Company IS NULL 
+  OR Country = 'USA';
+
+SELECT Name, Bytes
+FROM tracks
+WHERE
+  "Bytes" >= 10000
+  AND "Bytes" <= 500000;
+  -- "Bytes" BETWEEN 10000 AND 500000;
+
+SELECT Name, Bytes
+FROM tracks
+WHERE "Bytes" BETWEEN 10000 AND 500000
+ORDER BY "Bytes";
+
+SELECT "LastName", "FirstName", Country
+FROM customers
+WHERE
+  "Country" IN ('Canada', 'Germany', 'France');
+-- WHERE "Country" = 'Canada' OR "Country"='Germany' OR "Country" = 'France';
+
+SELECT Country FROM customers
+WHERE "Country" NOT IN ('Canada', 'Germany', 'France');
+
+SELECT "LastName", "FirstName" FROM customers
+WHERE "LastName" LIKE '%son';
+
+SELECT LastName, FirstName FROM customers
+WHERE "FirstName" LIKE '___a';
+
+SELECT TrackID, Name, Bytes
+FROM tracks
+ORDER BY
+  "Bytes" DESC
+LIMIT 7;
+
+SELECT TrackID, Name, Bytes
+FROM tracks
+ORDER BY
+  "Bytes" DESC
+-- LIMIT 3, 4;
+LIMIT 4 OFFSET 3;
+
 
 -- 04. Grouping data
 SELECT 
-  Country
+  Country, COUNT(*)
 FROM
   customers
 GROUP BY
   Country;
+
+SELECT 
+  Composer,
+  AVG(Bytes)
+FROM
+  tracks
+GROUP BY
+  "Composer"
+ORDER BY
+AVG(Bytes) DESC;
+
+SELECT 
+  Composer,
+  AVG(Bytes) AS avgOFBytes
+FROM
+  tracks
+GROUP BY
+  "Composer"
+ORDER BY
+  avgOFBytes DESC;
+
+SELECT
+  Composer,
+  AVG(Milliseconds / 60000) AS avgOFMinute
+FROM
+  tracks
+WHERE
+  avgOFMinute < 10
+GROUP BY
+  "Composer";
+  -- 순서상 where가 먼저 실행됨
+
+SELECT
+  Composer,
+  AVG(Milliseconds / 60000) AS avgOFMinute
+FROM
+  tracks
+-- WHERE
+--   avgOFMinute < 10
+GROUP BY
+  "Composer"
+HAVING
+  avgOFMinute < 10;
