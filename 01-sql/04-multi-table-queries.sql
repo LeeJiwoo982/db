@@ -39,5 +39,31 @@ VALUES
 
 
 -- INNER JOIN
+SELECT *
+FROM articles
+INNER JOIN users
+  ON users.id = articles."userId";
+  -- 작성자가 존재하는 게시글
+
+SELECT articles.title, users.name FROM articles
+INNER JOIN users 
+  ON users.id = articles."userId"
+WHERE
+  users.id = 1;
+
 
 -- LEFT JOIN
+SELECT * FROM articles
+LEFT JOIN users
+  ON users.id = articles."userId";
+
+SELECT * FROM users
+LEFT JOIN articles
+  ON articles."userId" = users.id
+WHERE articles."userId" IS NULL;
+
+SELECT name FROM users
+LEFT JOIN articles
+  ON articles."userId" = users.id
+WHERE articles."userId" IS NULL;
+
