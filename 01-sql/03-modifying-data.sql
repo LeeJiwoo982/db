@@ -52,5 +52,8 @@ WHERE
 
 DELETE FROM
     articles
-WHERE
-    id = 1;
+WHERE id IN (
+    SELECT id FROM articles
+    ORDER BY "createdAt"
+    LIMIT 2
+);
