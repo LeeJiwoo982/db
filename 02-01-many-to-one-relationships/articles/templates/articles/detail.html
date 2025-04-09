@@ -19,6 +19,26 @@
     {% csrf_token %}
     <input type="submit" value="삭제">
   </form>
+  <hr>
+  <form action="{% url "articles:comments_create" article.pk %}" method="POST">
+    {% csrf_token %}
+  {{ comment_form }}
+  <input type="submit">
+  </form>
+  <hr>
+  <ul>
+    {% for comment in comments %}
+    <li>
+      {{ comment.content }}
+      <form action="{% url "articles:comment_delete" article.pk comment.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="삭제">
+      </form>
+    </li>
+    <hr>
+    {% endfor %}
+  </ul>
+  <hr>
   <a href="{% url "articles:index" %}">[back]</a>
 </body>
 </html>
