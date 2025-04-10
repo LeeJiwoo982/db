@@ -31,7 +31,10 @@ def create(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST)
         if form.is_valid():
-            article = form.save()
+            article = form.save(commit=False)
+            # 요청 객체에 어떤 사람인지 들어있어 조회하지 않는다.
+            article.user = request.user
+            article.save()
             return redirect('articles:detail', article.pk)
     else:
         form = ArticleForm()
@@ -44,20 +47,25 @@ def create(request):
 @login_required
 def delete(request, pk):
     article = Article.objects.get(pk=pk)
-    article.delete()
+    if request.user == article.user:
+        article.delete()
     return redirect('articles:index')
 
 
 @login_required
 def update(request, pk):
     article = Article.objects.get(pk=pk)
-    if request.method == 'POST':
-        form = ArticleForm(request.POST, instance=article)
-        if form.is_valid():
-            form.save()
-            return redirect('articles:detail', article.pk)
+    # 수정을 요청시도하는 작성자와 사용자와 게시글의 작성자가 같은지 확인하는
+    if request.user == article.user:
+        if request.method == 'POST':
+            form = ArticleForm(request.POST, instance=article)
+            if form.is_valid():
+                form.save()
+                return redirect('articles:detail', article.pk)
+        else:
+            form = ArticleForm(instance=article)
     else:
-        form = ArticleForm(instance=article)
+        return redirect('articles:index')
     context = {
         'article': article,
         'form': form,
@@ -77,6 +85,7 @@ def comments_create(request, article_pk):
         # 댓글 인스턴스는 생성해주지만 실제 DB에 아직 저장 요청은 보내지 않고 대기
         comment = comment_form.save(commit=False)
         comment.article = article
+        comment.user = request.user
         comment.save()
         return redirect('articles:detail', article.pk)
     context = {
@@ -92,7 +101,8 @@ def comments_delete(request, article_pk, comment_pk):
     # 게시글 pk를 가져오는 첫번째 방법 (댓글 삭제 전에 게시글 번호 저장해두기)
     # article_id = comment.article.pk
     # 댓글 삭제
-    comment.delete()
+    if request.user == comment.user:
+        comment.delete()
     # 첫번째 방법에 대한 return
     # return redirect('articles:detail', article_id)
     # 두번째 방법에 대한 return
