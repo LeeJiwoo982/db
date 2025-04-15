@@ -37,6 +37,15 @@
       <p>글 제목: {{ article.title }}</p>
     </a>
     <p>글 내용: {{ article.content }}</p>
+    <form action="{% url "articles:likes" article.pk %}" method="POST">
+      {% csrf_token %}
+      {% if request.user in article.like_users.all %}
+        <input type="submit" value="❤️">
+      {% else %}
+        <input type="submit" value="🩶">
+      {% endif %}
+
+    </form>
     <hr>
   {% endfor %}
 </body>

@@ -85,3 +85,25 @@ def comments_delete(request, article_pk, comment_pk):
     if request.user == comment.user:
         comment.delete()
     return redirect('articles:detail', article_pk)
+
+def likes(request, article_pk):
+    # 좋아요 누를 게시글 어떤건지 조회
+    article = Article.objects.get(pk=article_pk)
+    
+    # 좋아요가 언제 추가하고 언제 취소할지 어떻게 구별??
+    # 좋아요 요청의 주체 : request.user
+    # request.user가 특정 게시글에 좋아요 누른 유저 목록에 있다면//없다면으로 구별
+    
+    # 특정 게시글 좋아요 유저 목록에 현재 요청 유저가 있다면
+    # 좋아요 취소
+    if request.user in article.like_users.all():
+        article.like_users.remove(request.user)
+        # request.user.like_articles.remove(article)
+    # 좋아요 추가
+    else:
+        article.like_users.add(request.user)
+        # request.user.like_articles.add(article)
+        # 누가 요청하든 모두 가능
+    return redirect('articles:index')
+
+    
