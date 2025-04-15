@@ -9,7 +9,8 @@ class Doctor(models.Model):
 
 
 class Patient(models.Model):
-    doctors = models.ManyToManyField(Doctor, through='Reservation')
+    doctors = models.ManyToManyField(Doctor, through='Reservation', related_name='patients')
+    # 필드 이름만 보고도 다대다인지 다대일인지 파악
     name = models.TextField()
 
     def __str__(self):
@@ -32,6 +33,7 @@ patient1 = Patient.objects.create(name='carol')
 patient2 = Patient.objects.create(name='duke')
 
 # 1. Reservation class를 통한 예약 생성
+# 예약이 스스로를 만드는 것은 어색하다.
 reservation1 = Reservation(doctor=doctor1, patient=patient1, symptom='headache')
 reservation1.save()
 doctor1.patient_set.all()

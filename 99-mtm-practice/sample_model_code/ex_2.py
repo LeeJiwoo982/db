@@ -20,6 +20,7 @@ class Patient(models.Model):
 class Reservation(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    # 외래키만 가지고 있음음
 
     def __str__(self):
         return f'{self.doctor_id}번 의사의 {self.patient_id}번 환자'

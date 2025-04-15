@@ -9,7 +9,7 @@ class Doctor(models.Model):
 
 
 class Patient(models.Model):
-    doctors = models.ManyToManyField(Doctor, through='Reservation')
+    doctors = models.ManyToManyField(Doctor, through='Reservation', related_name='patients')
     name = models.TextField()
 
     def __str__(self):
