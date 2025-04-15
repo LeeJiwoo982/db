@@ -1,0 +1,178 @@
+[
+{
+    "model": "articles.comment",
+    "pk": 1,
+    "fields": {
+        "article": 1,
+        "user": 1,
+        "content": "comment1",
+        "created_at": "2025-04-15T05:58:40.895Z",
+        "updated_at": "2025-04-15T05:58:40.895Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 17,
+    "fields": {
+        "article": 5,
+        "user": 2,
+        "content": "comment2",
+        "created_at": "2025-04-15T06:01:06.147Z",
+        "updated_at": "2025-04-15T06:01:06.147Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 18,
+    "fields": {
+        "article": 1,
+        "user": 2,
+        "content": "comment2",
+        "created_at": "2025-04-15T06:01:13.692Z",
+        "updated_at": "2025-04-15T06:01:13.692Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 19,
+    "fields": {
+        "article": 6,
+        "user": 3,
+        "content": "comment3",
+        "created_at": "2025-04-15T06:01:48.798Z",
+        "updated_at": "2025-04-15T06:01:48.798Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 20,
+    "fields": {
+        "article": 1,
+        "user": 3,
+        "content": "comment3",
+        "created_at": "2025-04-15T06:01:52.788Z",
+        "updated_at": "2025-04-15T06:01:52.788Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 21,
+    "fields": {
+        "article": 5,
+        "user": 3,
+        "content": "comment3",
+        "created_at": "2025-04-15T06:01:56.525Z",
+        "updated_at": "2025-04-15T06:01:56.525Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 22,
+    "fields": {
+        "article": 7,
+        "user": 4,
+        "content": "comment4",
+        "created_at": "2025-04-15T06:02:22.880Z",
+        "updated_at": "2025-04-15T06:02:22.880Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 23,
+    "fields": {
+        "article": 1,
+        "user": 4,
+        "content": "comment4",
+        "created_at": "2025-04-15T06:02:30.809Z",
+        "updated_at": "2025-04-15T06:02:30.809Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 24,
+    "fields": {
+        "article": 5,
+        "user": 4,
+        "content": "comment4",
+        "created_at": "2025-04-15T06:02:36.395Z",
+        "updated_at": "2025-04-15T06:02:36.395Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 25,
+    "fields": {
+        "article": 6,
+        "user": 4,
+        "content": "comment4",
+        "created_at": "2025-04-15T06:02:40.418Z",
+        "updated_at": "2025-04-15T06:02:40.418Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 26,
+    "fields": {
+        "article": 7,
+        "user": 4,
+        "content": "comment3",
+        "created_at": "2025-04-15T06:02:45.390Z",
+        "updated_at": "2025-04-15T06:02:45.390Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 27,
+    "fields": {
+        "article": 7,
+        "user": 4,
+        "content": "comment2",
+        "created_at": "2025-04-15T06:02:47.296Z",
+        "updated_at": "2025-04-15T06:02:47.296Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 28,
+    "fields": {
+        "article": 7,
+        "user": 4,
+        "content": "comment1",
+        "created_at": "2025-04-15T06:02:48.597Z",
+        "updated_at": "2025-04-15T06:02:48.597Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 29,
+    "fields": {
+        "article": 5,
+        "user": 4,
+        "content": "comment1",
+        "created_at": "2025-04-15T06:02:53.820Z",
+        "updated_at": "2025-04-15T06:02:53.820Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 30,
+    "fields": {
+        "article": 6,
+        "user": 4,
+        "content": "comment2",
+        "created_at": "2025-04-15T06:03:00.360Z",
+        "updated_at": "2025-04-15T06:03:00.360Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 31,
+    "fields": {
+        "article": 6,
+        "user": 4,
+        "content": "comment1",
+        "created_at": "2025-04-15T06:03:01.701Z",
+        "updated_at": "2025-04-15T06:03:01.701Z"
+    }
+}
+]

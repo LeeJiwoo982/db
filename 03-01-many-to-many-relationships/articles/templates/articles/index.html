@@ -12,6 +12,7 @@
   {% comment %} {% if user.is_authenticated %} {% endcomment %}
   {% if request.user.is_authenticated %}
     <h1>안녕하세요, {{ user.username }}님</h1>
+    <a href="{% url "accounts:profile" user.username %}">PROFILE</a>
     <a href="{% url "articles:create" %}">CREATE</a>
     <form action="{% url "accounts:logout" %}" method="POST">
       {% csrf_token %}
@@ -30,7 +31,9 @@
   <hr>
 
   {% for article in articles %}
-    <p>작성자 : {{ article.user }}</p>
+    <p>작성자 : 
+      <a href="{% url "accounts:profile" article.user.username %}">{{ article.user }}</a>
+    </p>
     {% comment %} <p>작성자 : {{ article.user.username }}</p> {% endcomment %}
     <p>글 번호: {{ article.pk }}</p>
     <a href="{% url "articles:detail" article.pk %}">

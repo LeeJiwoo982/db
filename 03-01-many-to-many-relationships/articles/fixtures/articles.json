@@ -1,0 +1,52 @@
+[
+{
+    "model": "articles.article",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "title": "title1",
+        "content": "content1",
+        "created_at": "2025-04-15T05:58:26.776Z",
+        "updated_at": "2025-04-15T06:00:15.489Z",
+        "like_users": [
+            2
+        ]
+    }
+},
+{
+    "model": "articles.article",
+    "pk": 5,
+    "fields": {
+        "user": 2,
+        "title": "title2",
+        "content": "content2",
+        "created_at": "2025-04-15T06:00:58.172Z",
+        "updated_at": "2025-04-15T06:00:58.172Z",
+        "like_users": []
+    }
+},
+{
+    "model": "articles.article",
+    "pk": 6,
+    "fields": {
+        "user": 3,
+        "title": "title3",
+        "content": "content3",
+        "created_at": "2025-04-15T06:01:46.294Z",
+        "updated_at": "2025-04-15T06:01:46.294Z",
+        "like_users": []
+    }
+},
+{
+    "model": "articles.article",
+    "pk": 7,
+    "fields": {
+        "user": 4,
+        "title": "title4",
+        "content": "content4",
+        "created_at": "2025-04-15T06:02:20.395Z",
+        "updated_at": "2025-04-15T06:02:20.395Z",
+        "like_users": []
+    }
+}
+]

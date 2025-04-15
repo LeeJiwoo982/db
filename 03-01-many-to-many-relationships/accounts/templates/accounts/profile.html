@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	{% if request.user.is_authenticated %}
+	<a href="{% url "articles:index" %}">HOME</a>
+    <a href="{% url "articles:create" %}">CREATE</a>
+    <form action="{% url "accounts:logout" %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="로그아웃">
+    </form>
+    <form action="{% url "accounts:delete" %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="회원탈퇴">
+    </form>
+    <a href="{% url "accounts:update" %}">회원정보 수정</a>
+	{% else %}
+    <a href="{% url "accounts:login" %}">로그인</a>
+    <a href="{% url "accounts:signup" %}">회원가입</a>
+{% endif %}
+
+	<h1>{{ person.username }}의 프로필 페이지</h1>
+	<form action="{% url "accounts:follow" person.pk %}" method="POST">
+		{% csrf_token %}
+		{% if request.user in person.followers.all %}
+		<input type="submit" value="🤝">
+		{% else %}
+		<input type="submit" value="🙅‍♀️">
+		{% endif %}
+	</form>
+	<p>팔로워 수 | {{ person.followers.count }} / 팔로잉 수 | {{ person.followings.count }}</p>
+	<hr>
+	
+	<h2>{{ person.username }}이 작성한 게시물</h2>
+	{% for article in person.article_set.all %}
+	<div>• {{ article.title }}</div>
+	{% endfor %}
+
+	<h2>{{ person.username }}이 좋아요 한 게시글</h2>
+	{% for article in person.like_articles.all %}
+	<div>• {{ article.title }}</div>
+	{% endfor %}
+</body>
+</html>

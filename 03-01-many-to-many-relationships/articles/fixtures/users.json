@@ -1,0 +1,81 @@
+[
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$HlhltlhrD8JkhoqYtZ7alD$diVyJaY0PxvymJ/4pkGRj5/E7se0HCRZ4l/ah3p9Mjc=",
+        "last_login": "2025-04-15T05:58:13.421Z",
+        "is_superuser": false,
+        "username": "user1",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-15T05:58:07.139Z",
+        "groups": [],
+        "user_permissions": [],
+        "followings": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$YFfgBcCJdm3s1uIxpYPi3v$T+uiZUaChK3JLnCIqSpiRk9FgsBLUfd/vzsZHwsLaaY=",
+        "last_login": "2025-04-15T06:00:49.680Z",
+        "is_superuser": false,
+        "username": "user2",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-15T06:00:42.883Z",
+        "groups": [],
+        "user_permissions": [],
+        "followings": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$h21KKchaTQ78Ve4bLK7OV7$4de5zhEzIkUkwdvbo3oPfTDthw/fTrZCkOZU6hoxPmY=",
+        "last_login": "2025-04-15T06:01:36.790Z",
+        "is_superuser": false,
+        "username": "user3",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-15T06:01:28.278Z",
+        "groups": [],
+        "user_permissions": [],
+        "followings": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$1wYd8RmicrG3yBwTBcp83q$mHu/u5sAYc/aDh+ZBfDEyFuCcX47UxyddshbfEwLF9Q=",
+        "last_login": "2025-04-15T06:02:11.903Z",
+        "is_superuser": false,
+        "username": "user4",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-15T06:02:06.323Z",
+        "groups": [],
+        "user_permissions": [],
+        "followings": [
+            2,
+            3
+        ]
+    }
+}
+]
