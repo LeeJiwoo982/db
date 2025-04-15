@@ -11,7 +11,7 @@
     <p>제목 : {{ article.title }}</p>
     <p>댓글 목록</p>
     {% for comment in article.comment_set.all %}
-      <p>{{ comment.content }}</p>
+      <p>• {{ comment.content }}</p>
     {% endfor %}
     <hr>
   {% endfor %}
